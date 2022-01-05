@@ -4,5 +4,13 @@
   "port": 5432,
   "username": "postgres",
   "password": "4f6h8k2s",
-  "database": "fcpark_postgres"
+  "database": "fcpark_postgres",
+
+  "migrations": [
+    "./src/database/*.ts"
+  ],
+
+  "cli": {
+    "migrationsDir": "./src/database/"
+  }
 }
