@@ -5,12 +5,10 @@
   "repository": "https://github.com/matheusAFreitas/park.git",
   "author": "matheusAFreitas <matheusalvesdefreitas@gmail.com>",
   "license": "MIT",
-
   "scripts": {
     "dev": "ts-node-dev --transpile-only --clear src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
-
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.8",
