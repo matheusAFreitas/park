@@ -15,15 +15,20 @@ export class CreateEstablishment1641358264502 implements MigrationInterface {
             default: 'uuid_generate_v4()',
           },
           {
-            name: 'name',
+            name: 'nome',
             type: 'varchar',
           },
           {
             name: 'CNPJ',
             type: 'varchar',
+            isUnique: true,
           },
           {
-            name: 'endereço',
+            name: 'password',
+            type: 'varchar',
+          },
+          {
+            name: 'endereco',
             type: 'varchar',
           },
           {

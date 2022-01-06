@@ -13,6 +13,11 @@ export class CreateVehicle1641360982561 implements MigrationInterface {
             generationStrategy: 'uuid',
           },
           {
+            name: 'provider_id',
+            type: 'uuid',
+            isNullable: true,
+          },
+          {
             name: 'marca',
             type: 'varchar',
           },
@@ -30,6 +35,10 @@ export class CreateVehicle1641360982561 implements MigrationInterface {
           },
           {
             name: 'tipo',
+            type: 'varchar',
+          },
+          {
+            name: 'estabelecimento registrado',
             type: 'varchar',
           },
         ],

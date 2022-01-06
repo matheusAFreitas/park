@@ -6,6 +6,10 @@
   "password": "4f6h8k2s",
   "database": "fcpark_postgres",
 
+  "entities": [
+    "./src/entities/*.ts"
+  ],
+
   "migrations": [
     "./src/database/*.ts"
   ],
