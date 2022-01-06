@@ -53,3 +53,5 @@ class CreateEstablishmentService {
     return establishment;
   }
 }
+
+export default CreateEstablishmentService;
