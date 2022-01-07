@@ -38,7 +38,7 @@ export class CreateVehicle1641360982561 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'estabelecimento registrado',
+            name: 'estabRegistrado',
             type: 'varchar',
           },
         ],

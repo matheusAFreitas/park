@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { userInfo } from 'os';
 
 import CreateEstablishmentService from '../services/CreateEstablishmentService';
 
@@ -20,6 +21,8 @@ establishmentRouter.post('/', async (request, response) => {
       qtdMoto,
       qtdCarro,
     });
+
+    delete establishment.password;
 
     return response.json(establishment);
   } catch (err) {
