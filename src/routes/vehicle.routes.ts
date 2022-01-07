@@ -1,4 +1,6 @@
 import { Router } from 'express';
+import { getRepository } from 'typeorm';
+import Vehicle from '../entities/Vehicle';
 import CreateVehicleService from '../services/CreateVehicleService';
 
 const vehicleRouter = Router();
@@ -24,6 +26,13 @@ vehicleRouter.post('/', async (request, response) => {
   } catch (err) {
     return response.status(400).json({ error: err.message });
   }
+});
+
+vehicleRouter.get('/', async (request, response) => {
+  const vehicleRepository = getRepository(Vehicle);
+  const vehicle = await vehicleRepository.find();
+
+  return response.json(vehicle);
 });
 
 export default vehicleRouter;
