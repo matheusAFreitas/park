@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { userInfo } from 'os';
 
 import CreateEstablishmentService from '../services/CreateEstablishmentService';
 

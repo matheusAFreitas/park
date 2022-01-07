@@ -1,20 +1,22 @@
-import { getCustomRepository, getRepository } from 'typeorm';
-import { uuid } from 'uuidv4';
+import { getRepository } from 'typeorm';
+import { v4 } from 'uuid';
 import Vehicle from '../entities/Vehicle';
 
 interface ICreateVehicle {
   providerId: string;
   marca: string;
+  modelo: string;
   cor: string;
   placa: string;
   tipo: string;
   estabRegistrado: string;
 }
 
-class CreateVehicle {
+class CreateVehicleService {
   public async execute({
     providerId,
     marca,
+    modelo,
     cor,
     placa,
     tipo,
@@ -23,9 +25,10 @@ class CreateVehicle {
     const vehicleRepository = getRepository(Vehicle);
 
     const vehicle = vehicleRepository.create({
-      id: uuid(),
+      id: v4(),
       providerId,
       marca,
+      modelo,
       cor,
       placa,
       tipo,
@@ -37,3 +40,4 @@ class CreateVehicle {
     return vehicle;
   }
 }
+export default CreateVehicleService;

@@ -9,7 +9,7 @@ import {
 
 import Establishments from './Establishment';
 
-@Entity('vehicle')
+@Entity('vehicles')
 class Vehicle {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -23,6 +23,9 @@ class Vehicle {
 
   @Column()
   marca: string;
+
+  @Column()
+  modelo: string;
 
   @Column()
   cor: string;
