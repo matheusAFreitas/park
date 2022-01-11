@@ -1,6 +1,7 @@
 import { getRepository } from 'typeorm';
 import { v4 } from 'uuid';
 import Vehicle from '../entities/Vehicle';
+import AppError from '../errors/AppError';
 
 interface ICreateVehicle {
   providerId: string;
@@ -9,7 +10,6 @@ interface ICreateVehicle {
   cor: string;
   placa: string;
   tipo: string;
-  estabRegistrado: string;
 }
 
 class CreateVehicleService {
@@ -20,7 +20,6 @@ class CreateVehicleService {
     cor,
     placa,
     tipo,
-    estabRegistrado,
   }: ICreateVehicle): Promise<Vehicle> {
     const vehicleRepository = getRepository(Vehicle);
 
@@ -32,8 +31,15 @@ class CreateVehicleService {
       cor,
       placa,
       tipo,
-      estabRegistrado,
     });
+
+    const sameVehicle = await vehicleRepository.findOne({
+      where: { placa },
+    });
+
+    if (sameVehicle) {
+      throw new AppError('this vehicle is already in database');
+    }
 
     await vehicleRepository.save(vehicle);
 

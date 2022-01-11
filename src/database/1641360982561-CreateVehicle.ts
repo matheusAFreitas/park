@@ -32,13 +32,10 @@ export class CreateVehicle1641360982561 implements MigrationInterface {
           {
             name: 'placa',
             type: 'varchar',
+            isUnique: true,
           },
           {
             name: 'tipo',
-            type: 'varchar',
-          },
-          {
-            name: 'estabRegistrado',
             type: 'varchar',
           },
         ],

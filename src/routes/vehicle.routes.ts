@@ -19,7 +19,6 @@ vehicleRouter.post('/', async (request, response) => {
       cor,
       placa,
       tipo,
-      estabRegistrado,
     });
 
     return response.json(vehicle);

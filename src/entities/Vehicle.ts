@@ -35,9 +35,6 @@ class Vehicle {
 
   @Column()
   tipo: string;
-
-  @Column()
-  estabRegistrado: string;
 }
 
 export default Vehicle;
