@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import Establishments from './Establishment';
+import Establishments from './Establishments';
 
 @Entity('vehicles')
 class Vehicle {
