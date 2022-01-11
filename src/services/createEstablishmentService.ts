@@ -2,7 +2,7 @@ import { hash } from 'bcryptjs';
 import { getRepository } from 'typeorm';
 import { v4 } from 'uuid';
 
-import Establishment from '../entities/Establishment';
+import Establishments from '../entities/Establishments';
 import AppError from '../errors/AppError';
 
 interface IRequest {
@@ -24,8 +24,8 @@ class CreateEstablishmentService {
     telefone,
     qtdMoto,
     qtdCarro,
-  }: IRequest): Promise<Establishment> {
-    const EstablishmentRepository = getRepository(Establishment);
+  }: IRequest): Promise<Establishments> {
+    const EstablishmentRepository = getRepository(Establishments);
 
     const checkEstablishmentExists = await EstablishmentRepository.findOne({
       where: { CNPJ },
