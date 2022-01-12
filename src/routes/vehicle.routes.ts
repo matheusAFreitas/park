@@ -1,9 +1,12 @@
 import { Router } from 'express';
 import { getRepository } from 'typeorm';
 import Vehicle from '../entities/Vehicle';
+import ensureAuthenticate from '../middlewares/ensureAuthenticate';
 import CreateVehicleService from '../services/CreateVehicleService';
 
 const vehicleRouter = Router();
+
+vehicleRouter.use(ensureAuthenticate);
 
 vehicleRouter.post('/', async (request, response) => {
   try {
