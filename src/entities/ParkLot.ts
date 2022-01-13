@@ -7,8 +7,8 @@ import {
 } from 'typeorm';
 import Vehicle from './Vehicle';
 
-@Entity('park_lot')
-class Park {
+@Entity('parkLot')
+class ParkLot {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -18,9 +18,6 @@ class Park {
   @ManyToOne(() => Vehicle)
   @JoinColumn({ name: 'vehicle_id' })
   parkProvider: Vehicle;
-
-  @Column()
-  size: number;
 }
 
-export default Park;
+export default ParkLot;

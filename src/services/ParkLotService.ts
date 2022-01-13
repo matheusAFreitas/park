@@ -6,17 +6,15 @@ import AppError from '../errors/AppError';
 
 interface IPark {
   vehicleId: string;
-  size: number;
 }
 
-class ParkService {
-  public async execute({ vehicleId, size }: IPark): Promise<ParkLot> {
+class ParkLotService {
+  public async execute({ vehicleId }: IPark): Promise<ParkLot> {
     const parkRepository = getRepository(ParkLot);
 
     const park = parkRepository.create({
       id: v4(),
       vehicleId,
-      size,
     });
 
     const sameVehicle = await parkRepository.findOne({
@@ -27,6 +25,10 @@ class ParkService {
       throw new AppError('This car is already in the park');
     }
 
+    await parkRepository.save(park);
+
     return park;
   }
 }
+
+export default ParkLotService;
