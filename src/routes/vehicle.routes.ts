@@ -1,12 +1,21 @@
 import { Router } from 'express';
 import { getRepository } from 'typeorm';
+
 import Vehicle from '../entities/Vehicle';
 import ensureAuthenticate from '../middlewares/ensureAuthenticate';
 import CreateVehicleService from '../services/CreateVehicleService';
+import DeleteVehicleService from '../services/DeleteVehicleService';
 
 const vehicleRouter = Router();
 
 vehicleRouter.use(ensureAuthenticate);
+
+vehicleRouter.get('/', async (request, response) => {
+  const vehicleRepository = getRepository(Vehicle);
+  const vehicle = await vehicleRepository.find();
+
+  return response.json(vehicle);
+});
 
 vehicleRouter.post('/', async (request, response) => {
   try {
@@ -30,11 +39,18 @@ vehicleRouter.post('/', async (request, response) => {
   }
 });
 
-vehicleRouter.get('/', async (request, response) => {
-  const vehicleRepository = getRepository(Vehicle);
-  const vehicle = await vehicleRepository.find();
+vehicleRouter.delete('/:id', async (request, response) => {
+  const id = request.params.id;
 
-  return response.json(vehicle);
+  const deleteVehicle = new DeleteVehicleService();
+
+  await deleteVehicle.execute({
+    id,
+  });
+
+  return response.json({
+    message: 'Vehicle removed successfully',
+  });
 });
 
 export default vehicleRouter;
