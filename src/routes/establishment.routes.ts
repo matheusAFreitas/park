@@ -3,6 +3,7 @@ import { getRepository } from 'typeorm';
 import Establishments from '../entities/Establishments';
 
 import CreateEstablishmentService from '../services/CreateEstablishmentService';
+import DeleteEstablishmentService from '../services/DeleteEstablishmentService';
 
 const establishmentRouter = Router();
 
@@ -41,6 +42,20 @@ establishmentRouter.post('/', async (request, response) => {
   } catch (err) {
     return response.status(400).json({ error: err.message });
   }
+});
+
+establishmentRouter.delete('/:id', async (request, response) => {
+  const id = request.params.id;
+
+  const deleteEstablishment = new DeleteEstablishmentService();
+
+  await deleteEstablishment.execute({
+    id,
+  });
+
+  return response.json({
+    message: 'establishment removed successfully',
+  });
 });
 
 export default establishmentRouter;

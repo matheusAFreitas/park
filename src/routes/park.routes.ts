@@ -34,17 +34,16 @@ parkLotRouter.post('/', async (request, response) => {
 });
 
 parkLotRouter.delete('/:id', async (request, response) => {
-  const vehicleId = request.establishments.id;
-
   const id = request.params.id;
 
-  const deleteParkLotService = new DeleteParkLotService();
-  await deleteParkLotService.execute({
+  const deleteParkLot = new DeleteParkLotService();
+
+  await deleteParkLot.execute({
     id,
   });
 
   return response.json({
-    message: 'success',
+    message: 'car removed from parklot',
   });
 });
 
