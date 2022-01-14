@@ -35,14 +35,6 @@ export class CreateEstablishment1641358264502 implements MigrationInterface {
             name: 'telefone',
             type: 'varchar',
           },
-          {
-            name: 'qtdMoto',
-            type: 'int',
-          },
-          {
-            name: 'qtdCarro',
-            type: 'int',
-          },
         ],
       })
     );

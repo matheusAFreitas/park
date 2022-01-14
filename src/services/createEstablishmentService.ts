@@ -11,8 +11,6 @@ interface IRequest {
   password: string;
   endereco: string;
   telefone: string;
-  qtdMoto: number;
-  qtdCarro: number;
 }
 
 class CreateEstablishmentService {
@@ -22,12 +20,10 @@ class CreateEstablishmentService {
     password,
     endereco,
     telefone,
-    qtdMoto,
-    qtdCarro,
   }: IRequest): Promise<Establishments> {
-    const EstablishmentRepository = getRepository(Establishments);
+    const establishmentRepository = getRepository(Establishments);
 
-    const checkEstablishmentExists = await EstablishmentRepository.findOne({
+    const checkEstablishmentExists = await establishmentRepository.findOne({
       where: { CNPJ },
     });
 
@@ -37,18 +33,16 @@ class CreateEstablishmentService {
 
     const hashedPassword = await hash(password, 8);
 
-    const establishment = EstablishmentRepository.create({
+    const establishment = establishmentRepository.create({
       id: v4(),
       nome,
       CNPJ,
       password: hashedPassword,
       endereco,
       telefone,
-      qtdMoto,
-      qtdCarro,
     });
 
-    await EstablishmentRepository.save(establishment);
+    await establishmentRepository.save(establishment);
 
     return establishment;
   }

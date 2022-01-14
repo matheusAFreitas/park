@@ -19,12 +19,6 @@ class Establishments {
 
   @Column()
   telefone: string;
-
-  @Column()
-  qtdMoto: number;
-
-  @Column()
-  qtdCarro: number;
 }
 
 export default Establishments;
