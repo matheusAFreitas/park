@@ -1,8 +1,22 @@
 import { Router } from 'express';
+import { getRepository } from 'typeorm';
+import Establishments from '../entities/Establishments';
 
 import CreateEstablishmentService from '../services/CreateEstablishmentService';
 
 const establishmentRouter = Router();
+
+establishmentRouter.get('/', async (request, response) => {
+  const establishmentRepository = getRepository(Establishments);
+
+  const establishments = await establishmentRepository.find();
+
+  establishments.forEach((establishment) => {
+    delete establishment.password;
+  });
+
+  return response.json(establishments);
+});
 
 establishmentRouter.post('/', async (request, response) => {
   try {

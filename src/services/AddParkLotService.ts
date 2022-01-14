@@ -8,7 +8,7 @@ interface IPark {
   vehicleId: string;
 }
 
-class ParkLotService {
+class AddParkLotService {
   public async execute({ vehicleId }: IPark): Promise<ParkLot> {
     const parkRepository = getRepository(ParkLot);
 
@@ -31,4 +31,4 @@ class ParkLotService {
   }
 }
 
-export default ParkLotService;
+export default AddParkLotService;

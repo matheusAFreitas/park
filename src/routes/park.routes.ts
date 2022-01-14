@@ -1,15 +1,27 @@
 import { Router } from 'express';
 import { getRepository } from 'typeorm';
+
 import ParkLot from '../entities/ParkLot';
-import ParkLotService from '../services/ParkLotService';
+import ensureAuthenticate from '../middlewares/ensureAuthenticate';
+import AddParkLotService from '../services/AddParkLotService';
+import DeleteParkLotService from '../services/DeleteParkLotService';
 
 const parkLotRouter = Router();
+
+parkLotRouter.use(ensureAuthenticate);
+
+parkLotRouter.get('/', async (request, response) => {
+  const parkRepository = getRepository(ParkLot);
+  const parkedVehicles = await parkRepository.find();
+
+  return response.json(parkedVehicles);
+});
 
 parkLotRouter.post('/', async (request, response) => {
   try {
     const { vehicleId } = request.body;
 
-    const addCar = new ParkLotService();
+    const addCar = new AddParkLotService();
 
     const parkLot = await addCar.execute({
       vehicleId,
@@ -21,11 +33,19 @@ parkLotRouter.post('/', async (request, response) => {
   }
 });
 
-parkLotRouter.get('/', async (request, response) => {
-  const parkRepository = getRepository(ParkLot);
-  const parkedVehicles = parkRepository.find();
+parkLotRouter.delete('/:id', async (request, response) => {
+  const vehicleId = request.establishments.id;
 
-  return response.json(parkedVehicles);
+  const id = request.params.id;
+
+  const deleteParkLotService = new DeleteParkLotService();
+  await deleteParkLotService.execute({
+    id,
+  });
+
+  return response.json({
+    message: 'success',
+  });
 });
 
 export default parkLotRouter;
