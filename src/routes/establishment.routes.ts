@@ -32,8 +32,6 @@ establishmentRouter.post('/', async (request, response) => {
       password,
       endereco,
       telefone,
-      qtdMoto,
-      qtdCarro,
     });
 
     delete establishment.password;

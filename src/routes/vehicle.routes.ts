@@ -17,6 +17,19 @@ vehicleRouter.get('/', async (request, response) => {
   return response.json(vehicle);
 });
 
+vehicleRouter.get('/establishment', async (request, response) => {
+  const providerId = request.establishments.id;
+
+  const vehicleRepository = getRepository(Vehicle);
+  const vehicle = await vehicleRepository.find({
+    where: {
+      providerId,
+    },
+  });
+
+  return response.json(vehicle);
+});
+
 vehicleRouter.post('/', async (request, response) => {
   try {
     const { providerId, marca, modelo, cor, placa, tipo, estabRegistrado } =
