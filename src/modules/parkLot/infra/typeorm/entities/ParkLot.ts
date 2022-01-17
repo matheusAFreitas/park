@@ -5,7 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import Vehicle from './Vehicle';
+import Vehicle from '@modules/vehicles/infra/typeorm/entities/Vehicle';
 
 @Entity('parkLot')
 class ParkLot {

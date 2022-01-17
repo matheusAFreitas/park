@@ -1,9 +1,11 @@
 import 'express-async-errors';
 import express from 'express';
-import './database';
-import error from './errors/error';
+import connection from '../typeorm';
+import error from '@shared/infra/http/errors/error';
 
 import routes from './routes';
+
+connection();
 
 const app = express();
 

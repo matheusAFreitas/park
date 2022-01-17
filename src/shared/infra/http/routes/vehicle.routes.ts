@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import { getRepository } from 'typeorm';
 
-import Vehicle from '../entities/Vehicle';
-import ensureAuthenticate from '../middlewares/ensureAuthenticate';
-import CreateVehicleService from '../services/CreateVehicleService';
-import DeleteVehicleService from '../services/DeleteVehicleService';
+import Vehicle from '@modules/vehicles/infra/typeorm/entities/Vehicle';
+import ensureAuthenticate from '@shared/infra/http/middlewares/ensureAuthenticate';
+import CreateVehicleService from '@modules/vehicles/infra/services/CreateVehicleService';
+import DeleteVehicleService from '@modules/vehicles/infra/services/DeleteVehicleService';
 
 const vehicleRouter = Router();
 

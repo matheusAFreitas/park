@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import { getRepository } from 'typeorm';
 
-import ParkLot from '../entities/ParkLot';
-import ensureAuthenticate from '../middlewares/ensureAuthenticate';
-import AddParkLotService from '../services/AddParkLotService';
-import DeleteParkLotService from '../services/DeleteParkLotService';
+import ParkLot from '@modules/parkLot/infra/typeorm/entities/ParkLot';
+import ensureAuthenticate from '@shared/infra/http/middlewares/ensureAuthenticate';
+import AddParkLotService from '@modules/parkLot/infra/services/AddParkLotService';
+import DeleteParkLotService from '@modules/parkLot/infra/services/DeleteParkLotService';
 
 const parkLotRouter = Router();
 

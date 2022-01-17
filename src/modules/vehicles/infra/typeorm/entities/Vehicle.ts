@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import Establishments from './Establishments';
+import Establishments from '@modules/establishments/infra/typeorm/entities/Establishments';
 
 @Entity('vehicles')
 class Vehicle {

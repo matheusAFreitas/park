@@ -1,6 +1,6 @@
 import { getRepository } from 'typeorm';
-import Establishments from '../entities/Establishments';
-import AppError from '../errors/AppError';
+import Establishments from '@modules/establishments/infra/typeorm/entities/Establishments';
+import AppError from '@shared/errors/AppError';
 
 interface IDeleteEstablishmentService {
   id: string;

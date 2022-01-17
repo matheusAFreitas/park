@@ -1,6 +1,6 @@
 import { getRepository } from 'typeorm';
-import Vehicle from '../entities/Vehicle';
-import AppError from '../errors/AppError';
+import Vehicle from '@modules/vehicles/infra/typeorm/entities/Vehicle';
+import AppError from '@shared/errors/AppError';
 
 interface IDeleteVehicleService {
   id: string;

@@ -2,8 +2,8 @@ import { hash } from 'bcryptjs';
 import { getRepository } from 'typeorm';
 import { v4 } from 'uuid';
 
-import Establishments from '../entities/Establishments';
-import AppError from '../errors/AppError';
+import Establishments from '@modules/establishments/infra/typeorm/entities/Establishments';
+import AppError from '@shared/errors/AppError';
 
 interface IRequest {
   nome: string;

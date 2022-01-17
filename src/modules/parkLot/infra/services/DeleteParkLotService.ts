@@ -1,6 +1,6 @@
 import { getRepository } from 'typeorm';
-import ParkLot from '../entities/ParkLot';
-import AppError from '../errors/AppError';
+import ParkLot from '@modules/parkLot/infra/typeorm/entities/ParkLot';
+import AppError from '@shared/errors/AppError';
 
 interface IDeleteParkLotService {
   id: string;

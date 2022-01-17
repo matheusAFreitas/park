@@ -7,14 +7,16 @@
   "database": "fcpark_postgres",
 
   "entities": [
-    "./src/entities/*.ts"
+    "./src/modules/establishments/infra/typeorm/entities/*.ts",
+    "./src/modules/vehicles/infra/typeorm/entities/*.ts",
+    "./src/modules/parkLot/infra/typeorm/entities/*.ts"
   ],
 
   "migrations": [
-    "./src/database/*.ts"
+    "./src/shared/infra/typeorm/migrations/*.ts"
   ],
 
   "cli": {
-    "migrationsDir": "./src/database/"
+    "migrationsDir": "./src/shared/infra/typeorm/migrations/"
   }
 }

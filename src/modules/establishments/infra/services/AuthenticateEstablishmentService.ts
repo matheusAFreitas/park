@@ -2,9 +2,9 @@ import { getRepository } from 'typeorm';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 
-import AppError from '../errors/AppError';
-import authConfig from '../config/auth';
-import Establishments from '../entities/Establishments';
+import AppError from '@shared/errors/AppError';
+import authConfig from '@config/auth';
+import Establishments from '@modules/establishments/infra/typeorm/entities/Establishments';
 
 interface IRequest {
   CNPJ: string;

@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import { getRepository } from 'typeorm';
-import Establishments from '../entities/Establishments';
 
-import CreateEstablishmentService from '../services/CreateEstablishmentService';
-import DeleteEstablishmentService from '../services/DeleteEstablishmentService';
+import Establishments from '@modules/establishments/infra/typeorm/entities/Establishments';
+import CreateEstablishmentService from '@modules/establishments/infra/services/CreateEstablishmentService';
+import DeleteEstablishmentService from '@modules/establishments/infra/services/DeleteEstablishmentService';
 
 const establishmentRouter = Router();
 

@@ -1,8 +1,8 @@
 import { getRepository } from 'typeorm';
 import { v4 } from 'uuid';
 
-import ParkLot from '../entities/ParkLot';
-import AppError from '../errors/AppError';
+import ParkLot from '@modules/parkLot/infra/typeorm/entities/ParkLot';
+import AppError from '@shared/errors/AppError';
 
 interface IPark {
   vehicleId: string;
